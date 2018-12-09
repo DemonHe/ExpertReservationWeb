@@ -1,0 +1,87 @@
+.search-container {
+    position: relative;
+    left: 15%;
+}
+
+.search-container img {
+    width: 2rem;
+    border-width: 1px 0 1px 1px;
+    border-style: solid;
+    margin-right: 0;
+}
+
+.search-container input {
+    width: 70%;
+    height: 2.5rem;
+    background: url("../images/search.svg") no-repeat;
+    background-size: 1.7rem;
+    background-position-y: center;
+    background-position-x: 0.2rem;
+    padding-left: 2.8rem;
+    border: 1px solid #dddddd;
+}
+
+.title > img {
+    width: 2rem;
+    margin-left: 2rem;
+}
+
+.expert-container {
+    margin-top: 4rem;
+    position: relative;
+    width: 80%;
+    left: 10%;
+    right: 15%;
+}
+
+.expert-container .expert-title {
+    position: relative;
+    margin: 0;
+}
+
+.expert-container .expert-title h5 {
+    margin: auto auto auto 0;
+}
+
+.expert-container .expert-title img {
+    float: right;
+    width: 1.4rem;
+    height: 80%;
+    top: 10%;
+}
+
+.expert-container .expert-info {
+    position: relative;
+    width: 30%;
+    margin: 3rem 3% 0 0;
+    padding: 1%;
+    background-color: #eec752;
+}
+
+.expert-container .expert-info .expert-header {
+    margin: 0.5rem 0.5rem 1rem 0.3%;
+}
+
+.expert-container .expert-info .expert-header img {
+    float: right;
+    width: 1rem;
+    margin-left: 1rem;
+}
+
+.expert-container .expert-info .name {
+    margin: 1rem auto;
+}
+
+.expert-container .expert-info .item {
+    margin: 0.5rem 0;
+    color: #777777;
+}
+
+.expert-container .expert-info .item img {
+    width: 1rem;
+    margin-right: 0.5rem;
+}
+
+.expert-container .expert-info a {
+    color: #7777ee;
+}

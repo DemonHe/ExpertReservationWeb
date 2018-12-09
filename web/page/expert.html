@@ -6,13 +6,36 @@
     <title>专家</title>
 
     <link rel="stylesheet" href="../css/global.css"/>
+    <link rel="stylesheet" href="../css/basic.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/expert.css">
 </head>
 <body>
+
+<div class="container">
+    <h4 class="title">专家信息管理<img src="../images/logout.svg" title="登出"></h4>
+
+    <div class="search-container">
+        <input type="search" class="" placeholder="请输入专家姓名">
+    </div>
+
+    <div class="expert-container">
+        <div class="expert-title row">
+            <span class="bar"></span>
+            <h5 class="">专家信息列表</h5>
+            <img src="../images/add.svg" title="创建专家信息">
+        </div>
+
+        <div class="row" id="expert-list"></div>
+    </div>
+</div>
 
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/expert.js"></script>
+<script>
+    $('#expert-list').html(generateExpertInfoHtml(getExpertList()));
+</script>
 
 </body>
 </html>
