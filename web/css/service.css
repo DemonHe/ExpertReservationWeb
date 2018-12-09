@@ -1,0 +1,10 @@
+
+.input-container {
+    position: relative;
+    width: 50%;
+    left: 25%;
+}
+
+.cancel {
+    background-color: #efefef;
+}

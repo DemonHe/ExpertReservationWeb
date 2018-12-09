@@ -3,8 +3,28 @@
     margin: 4rem auto;
 }
 
+.title > img {
+    width: 2rem;
+    margin-left: 2rem;
+}
+
 .bar {
     border: 0 solid #73fa98;
     border-left-width: 0.3rem;
     margin-right: 1rem;
+}
+
+.text-input {
+    margin-top: 1.6rem;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.button {
+    margin-right: 2rem;
+    width: 6rem;
 }
