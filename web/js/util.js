@@ -6,7 +6,7 @@ function showTip(tip, message, color) {
         'color': color ? color : '#EF7865',
         'position': 'fixed',
         'top': '8rem',
-        'right': '4rem',
+        'right': '4rem'
     });
     tip.text(message);
 
