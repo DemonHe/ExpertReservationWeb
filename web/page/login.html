@@ -34,7 +34,7 @@
 <script src="../js/account.js"></script>
 <script src="../js/util.js"></script>
 <script>
-    $('#login').click(function () {
+    function submitLogin() {
         var name = $('#name').val();
         var password = $('#password').val();
         var result = login(name, password);
@@ -50,7 +50,17 @@
         } else {
             showError($('#tip'), result.message, 'white');
         }
+    }
+
+    $('#login').click(function () {
+        submitLogin();
     });
+
+    $('#password').keyup(function (event) {
+        if (event.keyCode === 13) {
+            submitLogin();
+        }
+    })
 </script>
 
 </body>
