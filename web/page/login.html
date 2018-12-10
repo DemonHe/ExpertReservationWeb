@@ -45,10 +45,10 @@
             } else if (type === 'EXPERT') {
                 window.location = 'service.html';
             } else {
-                showError($('#tip'), '未知用户类型', 'white');
+                showTip($('#tip'), '未知用户类型', 'white');
             }
         } else {
-            showError($('#tip'), result.message, 'white');
+            showTip($('#tip'), result.message, 'white');
         }
     }
 

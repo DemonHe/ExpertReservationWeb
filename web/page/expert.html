@@ -59,7 +59,7 @@
         if (result.success) {
             $('#' + expertId).hide();
         } else {
-            showError($('#tip'), result.message);
+            showTip($('#tip'), result.message);
         }
     }
 
@@ -75,7 +75,7 @@
             if (result.success) {
                 $('#expert-list').html(generateExpertInfoHtml(result.data));
             } else {
-                showError($('#tip'), result.message);
+                showTip($('#tip'), result.message);
             }
         }
     });

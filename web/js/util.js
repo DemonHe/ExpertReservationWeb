@@ -1,5 +1,5 @@
 
-function showError(tip, message, color) {
+function showTip(tip, message, color) {
     tip.css({
         'display': 'block',
         'font-size': '1.5rem',

@@ -1,7 +1,99 @@
 // 有关专家信息的后台调用
 
 function createExpert(expert) {
+    if (!expert.name || expert.name === '') {
+        return {
+            success: false,
+            message: '姓名不能为空',
+            data: null
+        }
+    }
 
+    if (!expert.password || expert.password === '') {
+        return {
+            success: false,
+            message: '密码不能为空',
+            data: null
+        }
+    }
+
+    if (expert.password !== expert.confirm) {
+        return {
+            success: false,
+            message: '密码和密码确认不一致',
+            data: null
+        }
+    }
+
+    if (!expert.phone || expert.phone === '') {
+        return {
+            success: false,
+            message: '电话不能为空',
+            data: null
+        }
+    }
+
+    if (!expert.email || expert.email === '') {
+        return {
+            success: false,
+            message: '邮箱不能为空',
+            data: null
+        }
+    }
+
+    if (!expert.nationality || expert.nationality === '') {
+        return {
+            success: false,
+            message: '国籍不能为空',
+            data: null
+        }
+    }
+
+    if (!expert.school || expert.school === '') {
+        return {
+            success: false,
+            message: '学校不能为空',
+            data: null
+        }
+    }
+
+    if (!expert.specialty || expert.specialty === '') {
+        return {
+            success: false,
+            message: '专业不能为空',
+            data: null
+        }
+    }
+
+    if (!expert.title || expert.title === '') {
+        return {
+            success: false,
+            message: '职称不能为空',
+            data: null
+        }
+    }
+
+    if (!expert.website || expert.website === '') {
+        return {
+            success: false,
+            message: '介绍网址不能为空',
+            data: null
+        }
+    }
+
+    if (!expert.description || expert.description === '') {
+        return {
+            success: false,
+            message: '简介不能为空',
+            data: null
+        }
+    }
+
+    return {
+        success: true,
+        message: '成功创建专家信息',
+        data: null
+    };
 }
 
 function deleteExpert(expertId) {
