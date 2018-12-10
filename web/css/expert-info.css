@@ -1,0 +1,66 @@
+
+.input-container {
+    position: relative;
+    width: 50%;
+    left: 25%;
+}
+
+.input-container .expert-name {
+    background: url("../images/user.svg") no-repeat 0.5rem center;
+    background-size: 1.7rem;
+    padding-left: 3rem;
+}
+
+.input-container .expert-password {
+    background: url("../images/lock.svg") no-repeat 0.3rem center;
+    background-size: 2rem;
+    padding-left: 3rem;
+}
+
+.input-container .expert-phone {
+    background: url("../images/phone.svg") no-repeat 0.5rem center;
+    background-size: 1.8rem;
+    padding-left: 3rem;
+}
+
+.input-container .expert-email {
+    background: url("../images/email.svg") no-repeat 0.5rem center;
+    background-size: 1.8rem;
+    padding-left: 3rem;
+}
+
+.input-container .expert-nationality {
+    background: url("../images/address.svg") no-repeat 0.5rem center;
+    background-size: 1.9rem;
+    padding-left: 3rem;
+}
+
+.input-container .expert-school {
+    background: url("../images/school.svg") no-repeat 0.7rem center;
+    background-size: 1.5rem;
+    padding-left: 3rem;
+}
+
+.input-container .expert-specialty {
+    background: url("../images/specialty.svg") no-repeat 0.7rem 0.5rem;
+    background-size: 1.3rem;
+    padding-left: 3rem;
+}
+
+.input-container .expert-title {
+    background: url("../images/title.svg") no-repeat 0.4rem center;
+    background-size: 1.9rem;
+    padding-left: 3rem;
+}
+
+.input-container .expert-website {
+    background: url("../images/website.svg") no-repeat 0.5rem center;
+    background-size: 1.5rem;
+    padding-left: 3rem;
+}
+
+.input-container .expert-description {
+    background: url("../images/description.svg") no-repeat 0.5rem 0.5rem;
+    background-size: 1.5rem;
+    padding-left: 3rem;
+}

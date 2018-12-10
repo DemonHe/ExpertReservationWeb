@@ -25,6 +25,10 @@
 }
 
 .button {
-    margin-right: 2rem;
+    margin: 0 2rem 2rem 0;
     width: 6rem;
+}
+
+.button-cancel {
+    background-color: #efefef;
 }
