@@ -13,27 +13,77 @@
 <body>
 
 <div class="container">
-    <h4 class="title">专家信息管理<img src="../images/logout.svg" title="登出"></h4>
+    <h4 class="title">专家信息管理<img src="../images/logout.svg" title="登出" id="logout"></h4>
 
     <div class="search-container">
-        <input type="search" class="" placeholder="请输入专家姓名">
+        <input type="search" id="searchText" placeholder="请输入专家姓名">
     </div>
 
     <div class="expert-container">
         <div class="expert-title row">
             <span class="bar"></span>
             <h5 class="">专家信息列表</h5>
-            <img src="../images/add.svg" title="创建专家信息">
+            <img src="../images/add.svg" id="create" title="创建专家信息">
         </div>
 
         <div class="row" id="expert-list"></div>
+    </div>
+</div>
+<div id="tip"></div>
+
+<div class="modal fade" id="delete-dialog">
+    <div class="modal-dialog">
+        <div class="modal-content message_align">
+            <div class="modal-body">
+                <p>您确认要删除吗？</p>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" id="delete-expert-id">
+                <button onclick="deleteExpertFromPage()" class="btn btn-default button-cancel" data-dismiss="modal">确定</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+            </div>
+        </div>
     </div>
 </div>
 
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/expert.js"></script>
+<script src="../js/account.js"></script>
+<script src="../js/util.js"></script>
 <script>
+
+    function deleteExpertFromPage() {
+        var expertId = $('#delete-expert-id').val();
+        var result = deleteExpert(expertId);
+        if (result.success) {
+            $('#' + expertId).hide();
+        } else {
+            showError($('#tip'), result.message);
+        }
+    }
+
+    $('#logout').click(function () {
+        logout();
+        window.location = 'login.html';
+    });
+
+    $('#searchText').keyup(function (event) {
+        if (event.keyCode === 13) {
+            var text = $('#searchText').val();
+            var result = searchExpert(text);
+            if (result.success) {
+                $('#expert-list').html(generateExpertInfoHtml(result.data));
+            } else {
+                showError($('#tip'), result.message);
+            }
+        }
+    });
+
+    $('#create').click(function () {
+        window.location = 'expert-create.html';
+    });
+
     $('#expert-list').html(generateExpertInfoHtml(getExpertList()));
 </script>
 
