@@ -5,6 +5,48 @@
     left: 25%;
 }
 
+.input-container .service-title {
+    background: url("../images/header.svg") no-repeat 0.3rem center;
+    background-size: 2rem;
+    padding-left: 3rem;
+}
+
+.input-container .service-address {
+    background: url("../images/address.svg") no-repeat 0.3rem center;
+    background-size: 2rem;
+    padding-left: 3rem;
+}
+
+.input-container .service-time {
+    background: url("../images/time.svg") no-repeat 0.7rem center;
+    background-size: 1.5rem;
+    padding-left: 3rem;
+}
+
+.input-container .service-deadline {
+    background: url("../images/deadline.svg") no-repeat 0.5rem center;
+    background-size: 2rem;
+    padding-left: 3rem;
+}
+
+.input-container .service-type {
+    background: url("../images/service.svg") no-repeat 0.5rem center;
+    background-size: 1.9rem;
+    padding-left: 3rem;
+}
+
+.input-container .service-profession {
+    background: url("../images/specialty.svg") no-repeat 0.7rem center;
+    background-size: 1.5rem;
+    padding-left: 3rem;
+}
+
+.input-container .service-content {
+    background: url("../images/description.svg") no-repeat 0.7rem 0.5rem;
+    background-size: 1.5rem;
+    padding-left: 3rem;
+}
+
 .cancel {
     background-color: #efefef;
 }
