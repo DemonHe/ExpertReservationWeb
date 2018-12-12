@@ -1,14 +1,12 @@
 package com.expert.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name="expert")
+@Table(name="expert_customize")
 public class Expert {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private int id;
     @Column(name = "name")
@@ -19,14 +17,14 @@ public class Expert {
     private String email;
     @Column(name = "position")
     private String position;
-    @Column(name = "introduction")
-    private String introduction;
-    @Column(name = "country")
-    private String country;
+    @Column(name = "description")
+    private String description;
+    @Column(name = "nationality")
+    private String nationality;
     @Column(name = "school")
     private String school;
-    @Column(name = "major")
-    private String major;
+    @Column(name = "specialty")
+    private String specialty;
 
     public int getId() {
         return id;
@@ -68,20 +66,20 @@ public class Expert {
         this.position = position;
     }
 
-    public String getIntroduction() {
-        return introduction;
+    public String getDescription() {
+        return description;
     }
 
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getCountry() {
-        return country;
+    public String getNationality() {
+        return nationality;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 
     public String getSchool() {
@@ -92,11 +90,11 @@ public class Expert {
         this.school = school;
     }
 
-    public String getMajor() {
-        return major;
+    public String getSpecialty() {
+        return specialty;
     }
 
-    public void setMajor(String major) {
-        this.major = major;
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
     }
 }
