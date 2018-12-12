@@ -39,14 +39,7 @@
         var password = $('#password').val();
         var result = login(name, password);
         if (result.success) {
-            var type = result.data;
-            if (type === 'MANAGER') {
-                window.location = 'expert.html';
-            } else if (type === 'EXPERT') {
-                window.location = 'service.html';
-            } else {
-                showTip($('#tip'), '未知用户类型', 'white');
-            }
+            window.location = 'expert.html';
         } else {
             showTip($('#tip'), result.message, 'white');
         }

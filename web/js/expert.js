@@ -90,7 +90,7 @@ function getExpertList() {
     return result
 }
 
-function toExpertCreatePage(expertId) {
+function toExpertModifyPage(expertId) {
     var name = $('#' + generateId(expertId, 'name')).text();
     var phone = $('#' + generateId(expertId, 'phone')).text();
     var email = $('#' + generateId(expertId, 'email')).text();
@@ -114,6 +114,11 @@ function toExpertCreatePage(expertId) {
     window.location = '../page/expert-modify.html';
 }
 
+function toServiceCreatePage(expertName) {
+    localStorage.setItem("expertName", expertName);
+    window.location = '../page/service.html';
+}
+
 function openDeleteDialog(expertId) {
     $('#delete-dialog').modal();
     $('#delete-expert-id').val(expertId);
@@ -130,7 +135,8 @@ function generateExpertInfoHtml(expertList) {
                 '<div class="expert-header">' +
                     '<span class="name" id="' + generateId(id, 'name') + '">' + expert.name + '</span>' +
                     '<img src="../images/delete.svg" onclick="openDeleteDialog(' + id + ')" title="删除专家信息">' +
-                    '<img src="../images/modify.svg" onclick="toExpertCreatePage(' + id + ')" title="修改专家信息">' +
+                    '<img src="../images/modify.svg" onclick="toExpertModifyPage(' + id + ')" title="修改专家信息">' +
+                    '<img src="../images/add.svg" onclick="toServiceCreatePage(\'' + expert.name + '\')" title="创建服务信息">' +
                 '</div>' +
                 '<div class="item">' +
                     '<img src="../images/phone.svg" title="电话">' +
