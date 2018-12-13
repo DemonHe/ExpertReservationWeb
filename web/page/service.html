@@ -13,26 +13,75 @@
 <body>
 
 <div class="container">
-    <h4 class="title">创建服务<img src="../images/logout.svg" title="登出"></h4>
+    <h4 class="title">创建服务</h4>
     <div class="input-container">
-        <input type="text" class="form-control text-input service-title" placeholder="服务标题">
-        <input type="text" class="form-control text-input service-address" placeholder="预约地址（例如：江苏省南京市南京大学）">
-        <input type="text" class="form-control text-input service-time" placeholder="预约时间（例如：2018-12-02 14:00:32）">
-        <input type="text" class="form-control text-input service-deadline" placeholder="截止时间（例如：2018-12-02 14:00:32）">
-        <input type="text" class="form-control text-input service-type" placeholder="服务类型">
-        <input type="text" class="form-control text-input service-profession" placeholder="专业类型">
-        <textarea class="form-control text-input service-content" placeholder="服务正文"></textarea>
+        <input type="text" id="title" class="form-control text-input service-title" placeholder="服务标题">
+        <input type="text" id="address" class="form-control text-input service-address" placeholder="预约地址">
+        <input type="text" id="time" class="form-control text-input service-time" placeholder="预约时间" readonly>
+        <input type="text" id="deadline" class="form-control text-input service-deadline" placeholder="截止时间" readonly>
+        <input type="text" id="serviceType" class="form-control text-input service-type" placeholder="服务类型">
+        <input type="text" id="professionType" class="form-control text-input service-profession" placeholder="专业类型">
+        <textarea id="description" class="form-control text-input service-content" placeholder="服务正文"></textarea>
     </div>
 
     <div class="button-container">
-        <button class="btn btn-primary button">创建</button>
-        <button class="btn btn-default button button-cancel">取消</button>
+        <button class="btn btn-primary button" id="create">创建</button>
+        <button class="btn btn-default button button-cancel" id="cancel">取消</button>
+        <button class="btn btn-default button button-cancel" id="return">返回</button>
     </div>
 </div>
+<div id="tip"></div>
 
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
+<script src="../js/util.js"></script>
 <script src="../js/service.js"></script>
+<script src="../js/laydate/laydate.js"></script>
+<script>
+    $('#return').click(function () {
+        window.location = 'expert.html';
+    });
 
+    $('#cancel').click(function () {
+        $('#title').val('');
+        $('#address').val('');
+        $('#time').val('');
+        $('#deadline').val('');
+        $('#serviceType').val('');
+        $('#professionType').val('');
+        $('#description').val('');
+    });
+
+    $('#create').click(function () {
+        var service = {
+            expertName: localStorage.getItem("expertName"),
+            title: $('#title').val(),
+            address: $('#address').val(),
+            time: $('#time').val(),
+            deadline: $('#deadline').val(),
+            serviceType: $('#serviceType').val(),
+            professionType: $('#professionType').val(),
+            description: $('#description').val()
+        };
+
+        var result = createService(service);
+        if (result.success) {
+            showTip($('#tip'), result.message, '#47fa59');
+        } else {
+            showTip($('#tip'), result.message);
+        }
+    });
+
+    laydate.render({
+        elem: '#time',
+        type: 'datetime'
+    });
+
+    laydate.render({
+        elem: '#deadline',
+        type: 'datetime'
+    });
+
+</script>
 </body>
 </html>
