@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>专家</title>
 
-    <link rel="stylesheet" href="../css/global.css"/>
-    <link rel="stylesheet" href="../css/basic.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../css/expert-info.css">
+    <link rel="stylesheet" href="../../static/css/global.css"/>
+    <link rel="stylesheet" href="../../static/css/basic.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../static/css/expert-info.css">
 </head>
 <body>
 
@@ -34,10 +34,10 @@
 </div>
 <div id="tip"></div>
 
-<script src="../js/jquery-3.3.1.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/expert.js"></script>
-<script src="../js/util.js"></script>
+<script src="../../static/js/jquery-3.3.1.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+<script src="../../static/js/expert.js"></script>
+<script src="../../static/js/util.js"></script>
 <script>
     function init(attribute) {
         var value = localStorage.getItem(attribute);
@@ -47,7 +47,7 @@
     }
 
     $('#return').click(function () {
-        window.location = 'expert.html';
+        window.location = '/static/expert';
     });
 
     $('#cancel').click(function () {

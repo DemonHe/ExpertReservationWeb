@@ -5,28 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>专家</title>
 
-    <link rel="stylesheet" href="../css/global.css"/>
-    <link rel="stylesheet" href="../css/basic.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../css/expert.css">
+    <link rel="stylesheet" href="../../static/css/global.css"/>
+    <link rel="stylesheet" href="../../static/css/basic.css">
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../static/css/expert.css">
 </head>
 <body>
 
 <div class="container">
-    <h4 class="title">专家信息管理<img src="../images/logout.svg" title="登出" id="logout"></h4>
+    <h4 class="title">专家信息管理<img src="../../static/images/logout.svg" title="登出" id="logout"></h4>
 
     <div class="search-container">
         <input type="search" id="searchText" placeholder="请输入专家姓名">
     </div>
 
     <div class="expert-container">
-        <div class="expert-title row">
+        <div class="expert-title">
             <span class="bar"></span>
             <h5 class="">专家信息列表</h5>
-            <img src="../images/add.svg" id="create" title="创建专家信息">
+            <img src="../../static/images/add.svg" id="create" title="创建专家信息">
         </div>
 
-        <div class="row" id="expert-list"></div>
+        <div id="expert-list"></div>
     </div>
 </div>
 <div id="tip"></div>
@@ -46,11 +46,11 @@
     </div>
 </div>
 
-<script src="../js/jquery-3.3.1.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/expert.js"></script>
-<script src="../js/account.js"></script>
-<script src="../js/util.js"></script>
+<script src="../../static/js/jquery-3.3.1.min.js"></script>
+<script src="../../static/js/bootstrap.min.js"></script>
+<script src="../../static/js/expert.js"></script>
+<script src="../../static/js/account.js"></script>
+<script src="../../static/js/util.js"></script>
 <script>
 
     function deleteExpertFromPage() {
@@ -65,7 +65,7 @@
 
     $('#logout').click(function () {
         logout();
-        window.location = 'login.html';
+        window.location = '/static/login';
     });
 
     $('#searchText').keyup(function (event) {
@@ -81,7 +81,7 @@
     });
 
     $('#create').click(function () {
-        window.location = 'expert-create.html';
+        window.location = '/static/expert/create';
     });
 
     $('#expert-list').html(generateExpertInfoHtml(getExpertList()));

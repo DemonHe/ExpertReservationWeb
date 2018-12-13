@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>登录</title>
 
-    <link rel="stylesheet" href="../css/global.css"/>
-    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../static/css/global.css"/>
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/css/login.css">
 </head>
 <body>
 
@@ -15,31 +15,31 @@
     <h4 class="text-center title">后台管理系统</h4>
     <div class="input-container">
         <div class="input-group-lg text-center">
-            <img src="../images/user.svg" class="icon input-group-addon">
+            <img src="../static/images/user.svg" class="icon">
             <input type="text" id="name" class="input" placeholder="请输入您的姓名">
         </div>
         <div class="input-group-lg text-center">
-            <img src="../images/lock.svg" class="icon input-group-addon">
+            <img src="../static/images/lock.svg" class="icon">
             <input type="password" id="password" class="input" placeholder="请输入您的密码">
         </div>
 
         <button class="input btn btn-primary" id="login">登录</button>
     </div>
 </div>
-<img src="../images/background.jpg" class="background"/>
+<img src="../static/images/background.jpg" class="background"/>
 <div id="tip"></div>
 
-<script src="../js/jquery-3.3.1.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/account.js"></script>
-<script src="../js/util.js"></script>
+<script src="../static/js/jquery-3.3.1.min.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>
+<script src="../static/js/account.js"></script>
+<script src="../static/js/util.js"></script>
 <script>
     function submitLogin() {
         var name = $('#name').val();
         var password = $('#password').val();
         var result = login(name, password);
         if (result.success) {
-            window.location = 'expert.html';
+            window.location = '/static/expert';
         } else {
             showTip($('#tip'), result.message, 'white');
         }

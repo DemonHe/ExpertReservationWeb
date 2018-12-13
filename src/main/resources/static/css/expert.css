@@ -32,6 +32,7 @@
 .expert-container .expert-title {
     position: relative;
     margin: 0;
+    display: flex;
 }
 
 .expert-container .expert-title h5 {
@@ -41,11 +42,14 @@
 .expert-container .expert-title img {
     float: right;
     width: 1.4rem;
+    position: relative;
     height: 80%;
     top: 10%;
+    right: 4%;
 }
 
 .expert-container .expert-info {
+    display: inline-block;
     position: relative;
     width: 30%;
     margin: 3rem 3% 0 0;

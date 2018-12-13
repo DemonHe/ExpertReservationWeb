@@ -111,12 +111,12 @@ function toExpertModifyPage(expertId) {
     localStorage.setItem('website', website);
     localStorage.setItem('description', description);
 
-    window.location = '../page/expert-modify.html';
+    window.location = '/static/expert/modify';
 }
 
 function toServiceCreatePage(expertName) {
     localStorage.setItem("expertName", expertName);
-    window.location = '../page/service.html';
+    window.location = '/static/service/create';
 }
 
 function openDeleteDialog(expertId) {
@@ -134,40 +134,40 @@ function generateExpertInfoHtml(expertList) {
             '<div class="expert-info" id="' + id + '">' +
                 '<div class="expert-header">' +
                     '<span class="name" id="' + generateId(id, 'name') + '">' + expert.name + '</span>' +
-                    '<img src="../images/delete.svg" onclick="openDeleteDialog(' + id + ')" title="删除专家信息">' +
-                    '<img src="../images/modify.svg" onclick="toExpertModifyPage(' + id + ')" title="修改专家信息">' +
-                    '<img src="../images/add.svg" onclick="toServiceCreatePage(\'' + expert.name + '\')" title="创建服务信息">' +
+                    '<img src="images/delete.svg" onclick="openDeleteDialog(' + id + ')" title="删除专家信息">' +
+                    '<img src="images/modify.svg" onclick="toExpertModifyPage(' + id + ')" title="修改专家信息">' +
+                    '<img src="images/add.svg" onclick="toServiceCreatePage(\'' + expert.name + '\')" title="创建服务信息">' +
                 '</div>' +
                 '<div class="item">' +
-                    '<img src="../images/phone.svg" title="电话">' +
+                    '<img src="images/phone.svg" title="电话">' +
                     '<span id="' + generateId(id, 'phone') + '">' + expert.phone + '</span>' +
                 '</div>' +
                 '<div class="item">' +
-                    '<img src="../images/email.svg" title="邮箱">' +
+                    '<img src="images/email.svg" title="邮箱">' +
                     '<span id="' + generateId(id, 'email') + '">' + expert.email + '</span>' +
                 '</div>' +
                 '<div class="item">' +
-                    '<img src="../images/address.svg" title="国籍">' +
+                    '<img src="images/address.svg" title="国籍">' +
                     '<span id="' + generateId(id, 'nationality') + '">' + expert.nationality + '</span>' +
                 '</div>' +
                 '<div class="item">' +
-                    '<img src="../images/school.svg" title="学校">' +
+                    '<img src="images/school.svg" title="学校">' +
                     '<span id="' + generateId(id, 'school') + '">' + expert.school + '</span>' +
                 '</div>' +
                 '<div class="item">' +
-                    '<img src="../images/specialty.svg" title="专业">' +
+                    '<img src="images/specialty.svg" title="专业">' +
                     '<span id="' + generateId(id, 'specialty') + '">' + expert.specialty + '</span>' +
                 '</div>' +
                 '<div class="item">' +
-                    '<img src="../images/title.svg" title="职称">' +
+                    '<img src="images/title.svg" title="职称">' +
                     '<span id="' + generateId(id, 'title') + '">' + expert.title + '</span>' +
                 '</div>' +
                 '<div class="item">' +
-                    '<img src="../images/website.svg" title="网址">' +
+                    '<img src="images/website.svg" title="网址">' +
                     '<span><a href="' + expert.website + '" id="' + generateId(id, 'website') + '">' + expert.website + '</a></span>' +
                 '</div>' +
                 '<div class="item">' +
-                    '<img src="../images/description.svg" title="简介">' +
+                    '<img src="images/description.svg" title="简介">' +
                     '<span id="' + generateId(id, 'description') + '">' + expert.description + '</span>' +
                 '</div>' +
             '</div>';
