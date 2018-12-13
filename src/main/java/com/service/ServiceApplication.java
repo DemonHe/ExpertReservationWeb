@@ -7,13 +7,13 @@ import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomi
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class DemoApplication extends SpringBootServletInitializer implements EmbeddedServletContainerCustomizer{
+public class ServiceApplication extends SpringBootServletInitializer implements EmbeddedServletContainerCustomizer{
     @Override
     public void customize(ConfigurableEmbeddedServletContainer container) {
         container.setPort(8090);
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(ServiceApplication.class, args);
     }
 }

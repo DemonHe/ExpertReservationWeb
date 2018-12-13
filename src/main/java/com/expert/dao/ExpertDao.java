@@ -3,11 +3,10 @@ package com.expert.dao;
 import com.expert.model.Expert;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+
 public interface ExpertDao extends JpaRepository<Expert, Integer> {
     public Expert findById(int id);
 
@@ -16,10 +15,17 @@ public interface ExpertDao extends JpaRepository<Expert, Integer> {
 
     public List<Expert> findAllBySchool(String school);
 
-    public List<Expert> findAllByMajor(String major);
+    public List<Expert> findAllBySpecialty(String speciality);
+
+    public List<Expert> findAllByNationality(String nationality);
+
+    public List<Expert> findAllByPosition(String position);
 
     @Query(value = "select e from Expert e where e.name like %?1%")
     public List<Expert> findAllByNameLike(String name);
+
+    @Query(value = "select e from Expert e where e.name like %?1% and e.nationality = ?2 and e.specialty = ?3 and e.position = ?4")
+    public List<Expert> findAllByDetail(String name,String nationality, String speciality,String position);
 
     public Expert save(Expert e);
 
