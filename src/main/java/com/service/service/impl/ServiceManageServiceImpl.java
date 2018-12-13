@@ -1,6 +1,7 @@
 package com.service.service.impl;
 
 import com.service.dao.ServiceDao;
+import com.service.model.Result;
 import com.service.model.Service;
 import com.service.service.ServiceManageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,18 @@ public class ServiceManageServiceImpl implements ServiceManageService {
     ServiceDao serviceDao;
 
     @Override
-    public Service addService(Service service) {
-        return serviceDao.save(service);
+    public Result addService(Service service) {
+        Result re = new Result();
+        try {
+            serviceDao.save(service);
+            re.setSuccess(true);
+            re.setMessgae("添加成功！");
+            re.setData(null);
+        }catch (Exception e){
+            re.setSuccess(false);
+            re.setMessgae("添加失败！");
+            re.setData(null);
+        }
+        return re;
     }
 }

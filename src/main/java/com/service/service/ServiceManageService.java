@@ -1,7 +1,8 @@
 package com.service.service;
 
+import com.service.model.Result;
 import com.service.model.Service;
 
 public interface ServiceManageService {
-    public Service addService(Service service);
+    public Result addService(Service service);
 }

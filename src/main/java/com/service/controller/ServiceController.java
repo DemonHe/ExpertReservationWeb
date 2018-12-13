@@ -1,5 +1,6 @@
 package com.service.controller;
 
+import com.service.model.Result;
 import com.service.model.Service;
 import com.service.service.ServiceManageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ public class ServiceController {
     ServiceManageService serviceManageService;
 
     @RequestMapping(value="/create")
-    public Service create(Service service){
+    public Result create(Service service){
         return serviceManageService.addService(service);
     }
 }

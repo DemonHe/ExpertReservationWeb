@@ -9,39 +9,28 @@ import java.util.Date;
 @Table(name="service")
 public class Service {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private int Id;
 
     @Column(name = "expertName")
     private String expertName;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "title")
+    private String title;
 
-    @Column(name = "field")
-    private String field;
+    @Column(name = "professionalType")
+    private String professionalType;
 
-    @Column(name = "content")
-    private String content;
+    @Column(name = "text")
+    private String text;
 
-    @Column(name = "type")
-    private String type;
+    @Column(name = "serviceType")
+    private String serviceType;
 
-    @Column(name = "startTime")
+    @Column(name = "subscribeTime")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date startTime;
-
-    @Column(name = "endTime")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date endTime;
-
-    public int getId() {
-        return Id;
-    }
-
-    public void setId(int id) {
-        Id = id;
-    }
+    private Date subscribeTime;
 
     public String getExpertName() {
         return expertName;
@@ -51,51 +40,76 @@ public class Service {
         this.expertName = expertName;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getField() {
-        return field;
+    public String getProfessionalType() {
+        return professionalType;
     }
 
-    public void setField(String field) {
-        this.field = field;
+    public void setProfessionalType(String professionalType) {
+        this.professionalType = professionalType;
     }
 
-    public String getContent() {
-        return content;
+    public String getText() {
+        return text;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public String getType() {
-        return type;
+    public String getServiceType() {
+        return serviceType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public Date getSubscribeTime() {
+        return subscribeTime;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public void setSubscribeTime(Date subscribeTime) {
+        this.subscribeTime = subscribeTime;
     }
 
-    public Date getEndTime() {
-        return endTime;
+    public Date getDeadline() {
+        return deadline;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public void setDeadline(Date deadline) {
+        this.deadline = deadline;
     }
+
+    public String getSubscribeAddress() {
+        return subscribeAddress;
+    }
+
+    public void setSubscribeAddress(String subscribeAddress) {
+        this.subscribeAddress = subscribeAddress;
+    }
+
+    @Column(name = "deadline")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date deadline;
+
+    @Column(name = "subscribeAddress")
+    private String subscribeAddress;
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
+
+
 }
