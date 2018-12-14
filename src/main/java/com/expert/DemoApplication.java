@@ -13,7 +13,7 @@ public class DemoApplication extends SpringBootServletInitializer implements Emb
 
     @Override
     public void customize(ConfigurableEmbeddedServletContainer container) {
-        container.setPort(8090);
+        container.setPort(8091);
     }
 
     public static void main(String[] args) {
