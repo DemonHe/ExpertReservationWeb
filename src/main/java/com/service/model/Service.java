@@ -13,24 +13,24 @@ public class Service {
     @Column(name = "Id")
     private int Id;
 
-    @Column(name = "expertName")
+    @Column(name = "expert_name")
     private String expertName;
 
     @Column(name = "title")
     private String title;
 
-    @Column(name = "professionalType")
-    private String professionalType;
+    @Column(name = "professional_type")
+    private String professionType;
 
     @Column(name = "text")
     private String text;
 
-    @Column(name = "serviceType")
+    @Column(name = "service_type")
     private String serviceType;
 
-    @Column(name = "subscribeTime")
+    @Column(name = "subscribe_time")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date subscribeTime;
+    private Date time;
 
     public String getExpertName() {
         return expertName;
@@ -48,12 +48,12 @@ public class Service {
         this.title = title;
     }
 
-    public String getProfessionalType() {
-        return professionalType;
+    public String getProfessionType() {
+        return professionType;
     }
 
-    public void setProfessionalType(String professionalType) {
-        this.professionalType = professionalType;
+    public void setProfessionType(String professionType) {
+        this.professionType = professionType;
     }
 
     public String getText() {
@@ -72,12 +72,12 @@ public class Service {
         this.serviceType = serviceType;
     }
 
-    public Date getSubscribeTime() {
-        return subscribeTime;
+    public Date getTime() {
+        return time;
     }
 
-    public void setSubscribeTime(Date subscribeTime) {
-        this.subscribeTime = subscribeTime;
+    public void setTime(Date time) {
+        this.time = time;
     }
 
     public Date getDeadline() {
@@ -88,20 +88,20 @@ public class Service {
         this.deadline = deadline;
     }
 
-    public String getSubscribeAddress() {
-        return subscribeAddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setSubscribeAddress(String subscribeAddress) {
-        this.subscribeAddress = subscribeAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Column(name = "deadline")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date deadline;
 
-    @Column(name = "subscribeAddress")
-    private String subscribeAddress;
+    @Column(name = "subscribe_address")
+    private String address;
 
     public int getId() {
         return Id;
