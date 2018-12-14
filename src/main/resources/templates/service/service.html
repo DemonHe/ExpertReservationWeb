@@ -71,18 +71,17 @@
                 method: 'post',
                 data: service,
                 crossDomain: true,
-                success: function (result) {
-                    if (result.success) {
-                        showTip($('#tip'), result.message, '#47fa59');
+                success: function (data) {
+                    if (data.success) {
+                        showTip($('#tip'), data.message, '#47fa59');
                     } else {
-                        showTip($('#tip'), result.message);
+                        showTip($('#tip'), data.message);
                     }
                 },
-                error: function (result) {
-                    showTip($('#tip'), result);
+                error: function (data) {
+                    showTip($('#tip'), data);
                 }
             });
-
         } else {
             showTip($('#tip'), result.message);
         }
