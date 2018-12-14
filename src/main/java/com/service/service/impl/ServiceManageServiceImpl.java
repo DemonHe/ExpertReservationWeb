@@ -17,11 +17,11 @@ public class ServiceManageServiceImpl implements ServiceManageService {
         try {
             serviceDao.save(service);
             re.setSuccess(true);
-            re.setMessgae("添加成功！");
+            re.setMessage("添加成功！");
             re.setData(null);
         }catch (Exception e){
             re.setSuccess(false);
-            re.setMessgae("添加失败！");
+            re.setMessage("添加失败！");
             re.setData(null);
         }
         return re;

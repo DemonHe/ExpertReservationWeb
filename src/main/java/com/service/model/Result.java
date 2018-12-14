@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Result {
     private Boolean success;
-    private String messgae;
+    private String message;
     private List<Service> data;
 
     public Boolean getSuccess() {
@@ -15,12 +15,12 @@ public class Result {
         this.success = success;
     }
 
-    public String getMessgae() {
-        return messgae;
+    public String getMessage() {
+        return message;
     }
 
-    public void setMessgae(String messgae) {
-        this.messgae = messgae;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public List<Service> getData() {
