@@ -23,7 +23,7 @@ public class Service {
     private String professionType;
 
     @Column(name = "text")
-    private String text;
+    private String description;
 
     @Column(name = "service_type")
     private String serviceType;
@@ -56,12 +56,12 @@ public class Service {
         this.professionType = professionType;
     }
 
-    public String getText() {
-        return text;
+    public String getDescription() {
+        return description;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getServiceType() {
