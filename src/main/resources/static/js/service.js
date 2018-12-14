@@ -1,6 +1,6 @@
-// 有关服务信息的后台调用
+// 验证用户输入
 
-function createService(service) {
+function verifyServiceValue(service) {
     if (!service.title || service.title === '') {
         return {
             success: false,

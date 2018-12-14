@@ -64,9 +64,25 @@
             description: $('#description').val()
         };
 
-        var result = createService(service);
+        var result = verifyServiceValue(service);
         if (result.success) {
-            showTip($('#tip'), result.message, '#47fa59');
+            $.ajax({
+                url: 'http://localhost:8090/service/create',
+                method: 'post',
+                data: service,
+                crossDomain: true,
+                success: function (result) {
+                    if (result.success) {
+                        showTip($('#tip'), result.message, '#47fa59');
+                    } else {
+                        showTip($('#tip'), result.message);
+                    }
+                },
+                error: function (result) {
+                    showTip($('#tip'), result);
+                }
+            });
+
         } else {
             showTip($('#tip'), result.message);
         }
