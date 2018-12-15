@@ -3,10 +3,12 @@ package com.expert.dao;
 import com.expert.model.Expert;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 
+@Transactional
 public interface ExpertDao extends JpaRepository<Expert, Integer> {
     public Expert findById(int id);
 

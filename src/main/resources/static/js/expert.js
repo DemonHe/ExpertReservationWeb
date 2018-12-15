@@ -1,94 +1,3 @@
-// 有关专家信息的后台调用
-
-function createExpert(expert) {
-    var check = verifyExpertInfo(expert);
-    if (!check.success) {
-        return check;
-    }
-
-    check = verifyPassword(expert.password, expert.confirm);
-    if (!check) {
-        return check;
-    }
-
-    return {
-        success: true,
-        message: '成功创建专家信息',
-        data: null
-    };
-}
-
-function deleteExpert(expertId) {
-    return {
-        success: true,
-        message: null,
-        data: null
-    };
-}
-
-function modifyExpert(expert) {
-    var check = verifyExpertInfo(expert);
-    if (!check.success) {
-        return check;
-    }
-
-    return {
-        success: true,
-        message: '成功修改专家信息',
-        data: null
-    };
-}
-
-function searchExpert(name) {
-    if (!name || name === '') {
-        return {
-            success: false,
-            message: '输入不能为空',
-            data: null
-        };
-    }
-
-    var list = [];
-    for (var i = 0; i < 2; ++i) {
-        list.push({
-            expertId: i,
-            name: i % 2 === 0 ? "张三" : "李四",
-            phone: '13200000000',
-            email: '123456@gmail.com',
-            nationality: '中国',
-            title: '教授',
-            school: '南京大学',
-            specialty: '软件工程',
-            description: '软件专家',
-            website: 'http://www.baidu.com'
-        });
-    }
-
-    return {
-        success: true,
-        message: null,
-        data: list
-    };
-}
-
-function getExpertList() {
-    var result = [];
-    for (var i = 0; i < 10; ++i) {
-        result.push({
-            expertId: i,
-            name: i % 2 === 0 ? "张三" : "李四",
-            phone: '13200000000',
-            email: '123456@gmail.com',
-            nationality: '中国',
-            title: '教授',
-            school: '南京大学',
-            specialty: '软件工程',
-            description: '软件专家',
-            website: 'http://www.baidu.com'
-        });
-    }
-    return result
-}
 
 function toExpertModifyPage(expertId) {
     var name = $('#' + generateId(expertId, 'name')).text();
@@ -98,9 +7,9 @@ function toExpertModifyPage(expertId) {
     var school = $('#' + generateId(expertId, 'school')).text();
     var specialty = $('#' + generateId(expertId, 'specialty')).text();
     var title = $('#' + generateId(expertId, 'title')).text();
-    var website = $('#' + generateId(expertId, 'website')).text();
     var description = $('#' + generateId(expertId, 'description')).text();
 
+    localStorage.setItem('id', expertId);
     localStorage.setItem('name', name);
     localStorage.setItem('phone', phone);
     localStorage.setItem('email', email);
@@ -108,7 +17,6 @@ function toExpertModifyPage(expertId) {
     localStorage.setItem('school', school);
     localStorage.setItem('specialty', specialty);
     localStorage.setItem('title', title);
-    localStorage.setItem('website', website);
     localStorage.setItem('description', description);
 
     window.location = '/static/expert/modify';
@@ -129,7 +37,7 @@ function generateExpertInfoHtml(expertList) {
     var html = '';
     for (var i = 0; i < expertList.length; ++i) {
         var expert = expertList[i];
-        var id = expert.expertId;
+        var id = expert.id;
         html +=
             '<div class="expert-info" id="' + id + '">' +
                 '<div class="expert-header">' +
@@ -140,7 +48,7 @@ function generateExpertInfoHtml(expertList) {
                 '</div>' +
                 '<div class="item">' +
                     '<img src="images/phone.svg" title="电话">' +
-                    '<span id="' + generateId(id, 'phone') + '">' + expert.phone + '</span>' +
+                    '<span id="' + generateId(id, 'phone') + '">' + expert.phoneNum + '</span>' +
                 '</div>' +
                 '<div class="item">' +
                     '<img src="images/email.svg" title="邮箱">' +
@@ -160,11 +68,7 @@ function generateExpertInfoHtml(expertList) {
                 '</div>' +
                 '<div class="item">' +
                     '<img src="images/title.svg" title="职称">' +
-                    '<span id="' + generateId(id, 'title') + '">' + expert.title + '</span>' +
-                '</div>' +
-                '<div class="item">' +
-                    '<img src="images/website.svg" title="网址">' +
-                    '<span><a href="' + expert.website + '" id="' + generateId(id, 'website') + '">' + expert.website + '</a></span>' +
+                    '<span id="' + generateId(id, 'title') + '">' + expert.position + '</span>' +
                 '</div>' +
                 '<div class="item">' +
                     '<img src="images/description.svg" title="简介">' +
@@ -188,7 +92,7 @@ function verifyExpertInfo(expert) {
         }
     }
 
-    if (!expert.phone || expert.phone === '') {
+    if (!expert.phoneNum || expert.phoneNum === '') {
         return {
             success: false,
             message: '电话不能为空',
@@ -228,18 +132,10 @@ function verifyExpertInfo(expert) {
         }
     }
 
-    if (!expert.title || expert.title === '') {
+    if (!expert.position || expert.position === '') {
         return {
             success: false,
             message: '职称不能为空',
-            data: null
-        }
-    }
-
-    if (!expert.website || expert.website === '') {
-        return {
-            success: false,
-            message: '介绍网址不能为空',
             data: null
         }
     }
@@ -248,30 +144,6 @@ function verifyExpertInfo(expert) {
         return {
             success: false,
             message: '简介不能为空',
-            data: null
-        }
-    }
-
-    return {
-        success: true,
-        message: null,
-        data: null
-    };
-}
-
-function verifyPassword(password, confirm) {
-    if (!password || password === '') {
-        return {
-            success: false,
-            message: '密码不能为空',
-            data: null
-        }
-    }
-
-    if (password !== confirm) {
-        return {
-            success: false,
-            message: '密码和密码确认不一致',
             data: null
         }
     }

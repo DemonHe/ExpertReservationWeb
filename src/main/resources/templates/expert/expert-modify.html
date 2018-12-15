@@ -22,7 +22,6 @@
         <input type="text" id="school" class="form-control text-input expert-school" placeholder="专家学校">
         <input type="text" id="specialty" class="form-control text-input expert-specialty" placeholder="专家专业">
         <input type="text" id="title" class="form-control text-input expert-title" placeholder="专家职称">
-        <input type="text" id="website" class="form-control text-input expert-website" placeholder="介绍网址">
         <textarea class="form-control text-input expert-description" id="description" placeholder="专家简介"></textarea>
     </div>
 
@@ -58,26 +57,37 @@
         $('#school').val('');
         $('#specialty').val('');
         $('#title').val('');
-        $('#website').val('');
         $('#description').val('');
     });
 
     $('#modify').click(function () {
         var expert = {
+            id: localStorage.getItem('id'),
             name: $('#name').val(),
-            phone: $('#phone').val(),
+            phoneNum: $('#phone').val(),
             email: $('#email').val(),
             nationality: $('#nationality').val(),
             school: $('#school').val(),
             specialty: $('#specialty').val(),
-            title: $('#title').val(),
-            website: $('#website').val(),
+            position: $('#title').val(),
             description: $('#description').val()
         };
 
-        var result =modifyExpert(expert);
+        var result =verifyExpertInfo(expert);
         if (result.success) {
-            showTip($('#tip'), result.message, '#47fa59');
+            $.ajax({
+                url: 'http://localhost:8091/expert/modify',
+                method: 'post',
+                data: JSON.stringify(expert),
+                contentType: 'application/json',
+                crossDomain: true,
+                success: function() {
+                    showTip($('#tip'), '专家信息修改成功', '#47fa59');
+                },
+                error: function() {
+                    showTip($('#tip'), '系统异常');
+                }
+            });
         } else {
             showTip($('#tip'), result.message);
         }
@@ -90,7 +100,6 @@
     init('school');
     init('specialty');
     init('title');
-    init('website');
     init('description');
 </script>
 </body>

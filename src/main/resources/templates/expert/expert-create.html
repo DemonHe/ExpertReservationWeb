@@ -16,15 +16,12 @@
     <h4 class="title">创建专家</h4>
     <div class="input-container">
         <input type="text" id="name" class="form-control text-input expert-name" placeholder="专家姓名">
-        <input type="password" id="password" class="form-control text-input expert-password" placeholder="账号密码">
-        <input type="password" id="password-confirm" class="form-control text-input expert-password" placeholder="密码确认">
         <input type="text" id="phone" class="form-control text-input expert-phone" placeholder="专家电话">
         <input type="text" id="email" class="form-control text-input expert-email" placeholder="专家邮箱">
         <input type="text" id="nationality" class="form-control text-input expert-nationality" placeholder="专家国籍">
         <input type="text" id="school" class="form-control text-input expert-school" placeholder="专家学校">
         <input type="text" id="specialty" class="form-control text-input expert-specialty" placeholder="专家专业">
         <input type="text" id="title" class="form-control text-input expert-title" placeholder="专家职称">
-        <input type="text" id="website" class="form-control text-input expert-website" placeholder="介绍网址">
         <textarea id="description" class="form-control text-input expert-description" placeholder="专家简介"></textarea>
     </div>
 
@@ -48,36 +45,42 @@
 
     $('#cancel').click(function () {
         $('#name').val('');
-        $('#password').val('');
-        $('#password-confirm').val('');
         $('#phone').val('');
         $('#email').val('');
         $('#nationality').val('');
         $('#school').val('');
         $('#specialty').val('');
         $('#title').val('');
-        $('#website').val('');
         $('#description').val('');
     });
 
     $('#create').click(function () {
         var expert = {
             name: $('#name').val(),
-            password: $('#password').val(),
-            confirm: $('#password-confirm').val(),
-            phone: $('#phone').val(),
+            phoneNum: $('#phone').val(),
             email: $('#email').val(),
             nationality: $('#nationality').val(),
             school: $('#school').val(),
             specialty: $('#specialty').val(),
-            title: $('#title').val(),
-            website: $('#website').val(),
+            position: $('#title').val(),
             description: $('#description').val()
         };
 
-        var result = createExpert(expert);
+        var result = verifyExpertInfo(expert);
         if (result.success) {
-            showTip($('#tip'), result.message, '#47fa59');
+            $.ajax({
+                url: 'http://localhost:8091/expert/add',
+                method: 'post',
+                data: JSON.stringify(expert),
+                contentType: 'application/json',
+                crossDomain: true,
+                success: function () {
+                    showTip($('#tip'), '专家信息创建成功', '#47fa59');
+                },
+                error: function () {
+                    showTip($('#tip'), '系统异常');
+                }
+            });
         } else {
             showTip($('#tip'), result.message);
         }

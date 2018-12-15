@@ -55,12 +55,20 @@
 
     function deleteExpertFromPage() {
         var expertId = $('#delete-expert-id').val();
-        var result = deleteExpert(expertId);
-        if (result.success) {
-            $('#' + expertId).hide();
-        } else {
-            showTip($('#tip'), result.message);
-        }
+        $.ajax({
+            url: 'http://localhost:8091/expert/delete',
+            method: 'post',
+            data: {id: expertId},
+            crossDomain: true,
+            success: function () {
+                $('#' + expertId).hide();
+                console.log('#' + expertId);
+                showTip($('#tip'), '成功删除专家信息', '#47fa59');
+            },
+            error: function (result) {
+                showTip($('#tip'), result);
+            }
+        });
     }
 
     $('#logout').click(function () {
@@ -71,12 +79,18 @@
     $('#searchText').keyup(function (event) {
         if (event.keyCode === 13) {
             var text = $('#searchText').val();
-            var result = searchExpert(text);
-            if (result.success) {
-                $('#expert-list').html(generateExpertInfoHtml(result.data));
-            } else {
-                showTip($('#tip'), result.message);
-            }
+            $.ajax({
+                url: 'http://localhost:8091/expert/searchByName',
+                method: 'post',
+                data: { name: text },
+                crossDomain: true,
+                success: function (result) {
+                    $('#expert-list').html(generateExpertInfoHtml(result));
+                },
+                error: function (result) {
+                    showTip($('#tip'), result);
+                }
+            });
         }
     });
 
@@ -84,7 +98,18 @@
         window.location = '/static/expert/create';
     });
 
-    $('#expert-list').html(generateExpertInfoHtml(getExpertList()));
+    $.ajax({
+        url: 'http://localhost:8091/expert/getAll',
+        method: 'get',
+        crossDomain: true,
+        success: function (result) {
+            $('#expert-list').html(generateExpertInfoHtml(result));
+        },
+        error: function (result) {
+            showTip($('#tip'), result);
+        }
+    });
+
 </script>
 
 </body>
