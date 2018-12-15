@@ -69,7 +69,8 @@
             $.ajax({
                 url: 'http://localhost:8090/service/create',
                 method: 'post',
-                data: service,
+                data: JSON.stringify(service),
+                contentType: 'application/json',
                 crossDomain: true,
                 success: function (data) {
                     if (data.success) {
