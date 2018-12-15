@@ -72,8 +72,13 @@
     }
 
     $('#logout').click(function () {
-        logout();
-        window.location = '/static/login';
+        $.ajax({
+            url: '/logout',
+            method: 'post',
+            success: function () {
+                window.location = '/static/login';
+            }
+        });
     });
 
     $('#searchText').keyup(function (event) {

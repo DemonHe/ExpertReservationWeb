@@ -1,6 +1,5 @@
-// 有关账户信息的后台调用
 
-function login(name, password) {
+function verifyLoginInfo(name, password) {
     if (!name || name === "") {
         return {
             success: false,
@@ -22,8 +21,4 @@ function login(name, password) {
         message: null,
         data: 'MANAGER'
     };
-}
-
-function logout() {
-
 }

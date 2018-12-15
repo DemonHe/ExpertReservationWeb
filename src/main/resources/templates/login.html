@@ -37,9 +37,24 @@
     function submitLogin() {
         var name = $('#name').val();
         var password = $('#password').val();
-        var result = login(name, password);
+        var result = verifyLoginInfo(name, password);
         if (result.success) {
-            window.location = '/static/expert';
+            $.ajax({
+                url: '/login',
+                method: 'post',
+                data: JSON.stringify({ name: name, password: password }),
+                contentType: 'application/json',
+                success: function (result) {
+                    if (result.success) {
+                        window.location = '/static/expert';
+                    } else {
+                        showTip($('#tip'), result.message, 'white');
+                    }
+                },
+                error: function (message) {
+                    showTip($('#tip'), message, 'white');
+                }
+            })
         } else {
             showTip($('#tip'), result.message, 'white');
         }
